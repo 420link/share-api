@@ -23,4 +23,11 @@ class LikesController extends Controller
             'data' => $param
         ],200);
     }
+    public function delete(Request $request)
+    {
+        DB::table('likes')->where('share_id', $request->share_id)->where('user_id', $request->user_id)->delete();
+        return response()->json([
+            'message' => 'Like deleted successfully',
+        ], 200);
+    }
 }

@@ -15,7 +15,7 @@ class SharesController extends Controller
      */
     public function index()
     {
-        $item = Share::all();
+        $items = Share::all();
         return response()->json([
             'message' => 'OK',
             'data' => $items
@@ -33,7 +33,7 @@ class SharesController extends Controller
         $item = new Share;
         $item->user_id = $request->user_id;
         $item->share = $request->share;
-        $item->seve();
+        $item->save();
         return response()->json([
             'message' => 'Share created successfully',
             'data' => $item
@@ -72,17 +72,7 @@ class SharesController extends Controller
 
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Share  $share
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Share $share)
-    {
-        //
-    }
+   
 
     /**
      * Remove the specified resource from storage.

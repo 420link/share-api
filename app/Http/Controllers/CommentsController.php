@@ -12,8 +12,9 @@ class CommentsController extends Controller
     {
         $now = Carbon::now();
         $param = [
-            "share_id" => $request->share_id,
+            "share_id" => $request->shares_id,
             "user_id" => $request->user_id,
+            "content" => $request->content,
             "created_at" => $now,
             "updated_at" => $now
         ];

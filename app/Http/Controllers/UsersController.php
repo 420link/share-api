@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UsersController extends Controller
 {
@@ -24,9 +25,9 @@ class UsersController extends Controller
             'profile' => $request->profile,
             'email' => $request->email
         ];
-        DB::table('users')->wwhere('email', $request->email)->updata($param);
+        DB::table('users')->where('email', $request->email)->update($param);
         return response()->json([
-            'message' => 'User updatad successfully',
+            'message' => 'User updated successfully',
             'data' => $param
         ],200);
     }
